@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Modern Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT PANEL -->
+        <div class="priority-section">
+            <header class="priority-header">
+                <h1><i class="fas fa-flag"></i> Priority</h1>
+                <div class="priority-badges">
+                    <div class="priority-badge priority-a">
+                        <span>A</span>
+                        <small>Critical</small>
+                    </div>
+                    <div class="priority-badge priority-b">
+                        <span>B</span>
+                        <small>High</small>
+                    </div>
+                    <div class="priority-badge priority-c">
+                        <span>C</span>
+                        <small>Medium</small>
+                    </div>
+                    <div class="priority-badge priority-d">
+                        <span>D</span>
+                        <small>Low</small>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dates-section">
+                <h2><i class="fas fa-calendar-alt"></i> Due Dates</h2>
+                <div id="due-dates-list" class="dates-list">
+                    <!-- Due dates will be populated here -->
+                </div>
+            </div>
+            
+            <div class="priority-tasks">
+                <h2><i class="fas fa-tasks"></i> Tasks by Priority</h2>
+                <div class="priority-group" id="priority-a-tasks">
+                    <h3 class="priority-title priority-a">Priority A</h3>
+                    <ul class="priority-task-list"></ul>
+                </div>
+                <div class="priority-group" id="priority-b-tasks">
+                    <h3 class="priority-title priority-b">Priority B</h3>
+                    <ul class="priority-task-list"></ul>
+                </div>
+                <div class="priority-group" id="priority-c-tasks">
+                    <h3 class="priority-title priority-c">Priority C</h3>
+                    <ul class="priority-task-list"></ul>
+                </div>
+                <div class="priority-group" id="priority-d-tasks">
+                    <h3 class="priority-title priority-d">Priority D</h3>
+                    <ul class="priority-task-list"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="todo-section">
+            <header class="todo-header">
+                <h1><i class="fas fa-list-check"></i> To-Do List</h1>
+                <div class="stats">
+                    <span id="total-tasks">0 tasks</span>
+                    <span id="completed-tasks">0 completed</span>
+                </div>
+            </header>
+
+            <div class="add-button" id="add-task-btn">
+                <i class="fas fa-plus"></i>
+                <span>Add Task</span>
+            </div>
+
+            <div id="tasks-container" class="tasks-container">
+                <!-- Tasks will be populated here -->
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>No tasks yet</h3>
+                    <p>Add your first task to get started!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="task-modal">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Task</h2>
+                <button class="close-btn" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="task-input">Task Description</label>
+                    <input type="text" id="task-input" placeholder="What needs to be done?">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="priority-select">Priority</label>
+                        <div class="priority-selector">
+                            <div class="priority-option" data-value="A">
+                                <span class="priority-dot priority-a"></span>
+                                <span>A - Critical</span>
+                            </div>
+                            <div class="priority-option" data-value="B">
+                                <span class="priority-dot priority-b"></span>
+                                <span>B - High</span>
+                            </div>
+                            <div class="priority-option" data-value="C">
+                                <span class="priority-dot priority-c"></span>
+                                <span>C - Medium</span>
+                            </div>
+                            <div class="priority-option" data-value="D">
+                                <span class="priority-dot priority-d"></span>
+                                <span>D - Low</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="due-date">Due Date</label>
+                        <input type="date" id="due-date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                <button class="btn btn-primary" id="save-task-btn">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
